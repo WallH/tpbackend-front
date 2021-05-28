@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NoticiaService } from 'src/app/services/noticia-service.service';
 
 @Component({
   selector: 'app-noticias',
@@ -32,7 +33,14 @@ export class NoticiasComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private noticiaService:NoticiaService) { 
+    this.noticiaService.getAll().then(
+      (res:any)=>
+      {
+        this.noticias = res.response;
+      }
+    ).catch();
+  }
 
   ngOnInit(): void {
   }

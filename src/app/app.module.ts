@@ -7,11 +7,13 @@ import { PasajesComponent } from './views/pasajes/pasajes.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NoticiasComponent } from './views/noticias/noticias.component';
 import { TraductorComponent } from './views/traductor/traductor.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriaDescuentoPipe } from './pipes/categoria-descuento.pipe';
 import { CategoriaPasajePipe } from './pipes/categoria-pasaje.pipe';
-
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { CrudnoticiaComponent } from './views/crudnoticia/crudnoticia.component';
+import { ViewlogsComponent } from './views/viewlogs/viewlogs.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +22,17 @@ import { CategoriaPasajePipe } from './pipes/categoria-pasaje.pipe';
     NoticiasComponent,
     TraductorComponent,
     CategoriaDescuentoPipe,
-    CategoriaPasajePipe
+    CategoriaPasajePipe,
+    CrudnoticiaComponent,
+    ViewlogsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    AlifeFileToBase64Module
   ],
   providers: [],
   bootstrap: [AppComponent]
