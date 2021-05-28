@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogTraductorService } from 'src/app/services/logtraductor-service.service';
 
 @Component({
   selector: 'app-viewlogs',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewlogsComponent implements OnInit {
 
-  constructor() { }
+  filters = 
+  {
+    idiomaDestino:'',
+    idiomaOrigen: ''
+  }
+  constructor(private logService:LogTraductorService) { 
+    this.loadLogs();
+  }
 
   ngOnInit(): void {
   }
-
+  
+  loadLogs()
+  {
+    this.logService.getFilter(this.filters).then(
+      res=>
+      {
+        
+      }
+    ).catch(err=>{
+      console.log(":D");
+    });
+  }
+  
 }

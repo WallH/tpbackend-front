@@ -4,6 +4,7 @@ import { CrudnoticiaComponent } from './views/crudnoticia/crudnoticia.component'
 import { NoticiasComponent } from './views/noticias/noticias.component';
 import { PasajesComponent } from './views/pasajes/pasajes.component';
 import { TraductorComponent } from './views/traductor/traductor.component';
+import { ViewlogsComponent } from './views/viewlogs/viewlogs.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'modnoticia',
     component:CrudnoticiaComponent
+  },
+  {
+    path:'logstraducciones',
+    component:ViewlogsComponent
   },
   {path:'traductor', component:TraductorComponent},
   {
