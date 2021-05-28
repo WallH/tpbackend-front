@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-it w-100" (click)="queryTranslate.source = 'it'" [ngClass]="queryTranslate.source == 'it' ? 'bg-primary' : ''">Italiano</i></div>
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-fr w-100" (click)="queryTranslate.source = 'fr'" [ngClass]="queryTranslate.source == 'fr' ? 'bg-primary' : ''">Francés</i></div>
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-gb w-100" (click)="queryTranslate.source = 'en'" [ngClass]="queryTranslate.source == 'en' ? 'bg-primary' : ''">Inglés</i></div>
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-es w-100" (click)="queryTranslate.source = 'es'" [ngClass]="queryTranslate.source == 'es' ? 'bg-primary' : ''">Español</i></div>
+    </div>
+    <textarea class="form-control" [(ngModel)]="queryTranslate.input"></textarea>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-it w-100" (click)="queryTranslate.target = 'it'" [ngClass]="queryTranslate.target == 'it' ? 'bg-primary' : ''">Italiano</i></div>
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-fr w-100" (click)="queryTranslate.target = 'fr'" [ngClass]="queryTranslate.target == 'fr' ? 'bg-primary' : ''">Francés</i></div>
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-gb w-100" (click)="queryTranslate.target = 'en'" [ngClass]="queryTranslate.target == 'en' ? 'bg-primary' : ''">Inglés</i></div>
+        <div class="col-md-3 col-sm-6 col-6"><i class="round-flag-icon round-flag-es w-100" (click)="queryTranslate.target = 'es'" [ngClass]="queryTranslate.target == 'es' ? 'bg-primary' : ''">Español</i></div>
+    </div>
+    <button class="btn btn-primary w-100" (click)="translate()" [disabled]="queryTranslate.target == queryTranslate.source || queryTranslate.source == '' || queryTranslate.target == '' || queryTranslate.input == ''">TRADUCIR</button>
+    <textarea class="form-control" disabled> {{ translated }}</textarea>
+    <div class="row">
+        <div class="col-4"><i class="bi bi-box-arrow-down-right"></i></div>
+        <div class="col-4"><i class="bi bi-collection position-absolute start-50"></i></div>
+        <div class="col-4"><i class="bi bi-x-square float-end"></i></div>
+
+    </div>
+</div>

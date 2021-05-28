@@ -1,0 +1,20 @@
+<div class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img [src]="noticias[sliderIndex].img" class="d-block w-100 imgCarousel" alt="ZackSnyderPoster">
+        </div>
+        <div class="carousel-caption d-none d-md-block bg-New">
+            <h5>{{noticias[sliderIndex].titulo}}</h5>
+            <p class="d-none d-lg-block">{{noticias[sliderIndex].texto}}</p>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button"
+        (click)="actionSlider(false)">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Atrás</span>
+    </button>
+    <button class="carousel-control-next" type="button" (click)="actionSlider(true)">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>

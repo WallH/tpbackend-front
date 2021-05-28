@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <div class="card">
+                <div class="card-header">Venta de pasaje</div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <div class="badge rounded-pill bg-primary">Información</div>
+                        <p>Para poder registrar un pasaje tendrá que ingresar un DNI a partir del 1000 como validación mínima.</p>
+                    </div>
+                    <form class="form-control">
+                        <div class="input-group form-inline">
+                            <span class="input-group-text">DNI</span>
+                            <input type="number" id="inputDNI" name="inputDNI" class="form-control" min="100" [(ngModel)]="newPasaje.dniPasajero" (ngModelChange)="calcularPrecio()">
+                        </div>
+                        <div class="input-group form-inline">
+                            <span class="input-group-text">$</span>
+                            <input type="number" id="cantIng" name="cantIng" class="form-control" min="1" [(ngModel)]="precioPasaje" (ngModelChange)="calcularPrecio()">
+                        </div>
+                        <div class="input-group form-inline">
+                          <span for="tipoPasajero" class="input-group-text">Categoría</span>
+                          <select id="tipoPasajero" name="tipoPasajero" class="form-control" [(ngModel)]="newPasaje.categoriaPasajero" (ngModelChange)="calcularPrecio()">
+                              <option value="M">M: Menor</option>
+                              <option value="A">A: Adulto</option>
+                              <option value="J">J: Jubilado</option>
+                          </select>
+                        </div>
+                        <div class="input-group form-inline" *ngIf="muestro">
+                            <span class="input-group-text">TOTAL $</span>
+                            <label class="form-control">{{newPasaje.precioPasaje}}</label>
+                        </div>
+                    </form>          
+                </div>
+            </div>    
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-header">Resumen</div>
+                <div class="card-body" *ngIf="muestro">
+                    <div  class="alert alert-info">
+                        <p>Fecha: {{newPasaje.fechaCompra | date:'dd/MM/yyyy'}}</p>
+                        <p>DNI:{{newPasaje.dniPasajero}}</p> 
+                        <p>El pasajero es un {{newPasaje.categoriaPasajero | categoriaPasaje}}.</p>
+                        <p>El precio del pasaje es de: {{precioPasajeCalculado}}</p>
+                    </div>
+                    <div class="btn btn-info" *ngIf="muestro && newPasaje.dniPasajero > 100" (click)="registrarPasaje()">Registrar</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-header">Pasajes</div>
+            <div class="card-body">
+                <table class="table table-bordered table-responsive border-aqua row-border hover">
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Precio total</th>
+                            <th>Categoría</th>
+                            <th>Descuento</th>
+                            <th>Fecha de compra</th>
+                            <th>Operaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pasaje of pasajes">
+                            <td>{{pasaje.dniPasajero}}</td>
+                            <td>${{pasaje.precioPasaje}}</td>
+                            <td>{{pasaje.categoriaPasajero + ':' + (pasaje.categoriaPasajero | categoriaPasaje)}}</td>
+                            <td>{{pasaje.categoriaPasajero | categoriaDescuento}}</td>
+                            <td>{{pasaje.fechaCompra | date: 'dd/MM/yyyy'}}</td>
+                            <td><button class="btn btn-danger" (click)="removePasaje(pasaje)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Estadística</h3>
+                <div class="row">
+                    <div *ngFor="let catPasaje of resumen | keyvalue" class="col-4 border">
+                        <p>Categoría: {{catPasaje.value.label}}</p>
+                        <p>Total vendidos: {{catPasaje.value.total}}</p>
+                        <p>Total recaudado: ${{catPasaje.value.totalDinero}}</p>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

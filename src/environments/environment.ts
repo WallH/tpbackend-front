@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiHost: "http://localhost:8080/api/",
+  apiKey: "430f6e2228msh91c0042e675a0c5p177ab1jsn028ae9b98e68",
+  rapidapihost: "systran-systran-platform-for-language-processing-v1.p.rapidapi.com",
+  rapidapihostfaffinity: "filmaffinity-unofficial.p.rapidapi.com",
+  rapidapihostimdb: "imdb-internet-movie-database-unofficial.p.rapidapi.com",
+  rapidapihostconversion: "community-neutrino-currency-conversion.p.rapidapi.com",
+  rapidapihostcovid: "covid-19-tracking.p.rapidapi.com"
+  
 };
 
 /*
